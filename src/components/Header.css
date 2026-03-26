@@ -1,0 +1,117 @@
+.header {
+height: 90px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0 40px;
+background-color:  #0f84eb;
+}
+
+
+
+.Bemvindo {
+    position: relative;
+    left: -100px;
+}
+
+.Header-app {
+    position: relative;
+    left: -28px;
+}
+
+.home {
+   background: none;
+   display: flex;
+   gap: 35px;
+   height: 36px;
+}
+
+
+/*Botao PAGINAS bonita*/
+.Botao {
+    position: relative;
+    left: -42px;
+    width: 100px;
+    padding: 10px 15px;
+    background-color: #0f84eb;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    
+}
+
+
+.Botao::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #ffffff;
+    transition: width 0.3s ease;
+}
+
+.Botao:hover::after {
+    width: 100%;
+}
+
+.Botao:hover {
+    transform: scale(1.05);
+}
+/*Botao PAGINAS bonita*/
+
+/*Botao PERFIL bonito*/
+.perfil {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+.perfil::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #ffffff;
+    transition: width 0.3s ease;
+}
+
+
+.perfil:hover::after {
+    width: 100%;
+}
+
+.perfil:hover {
+    transform: scale(1.05);
+}
+/*Botao PERFIL bonito*/
+
+/*Input com icone de pesquisar dentro*/
+.input-container {
+position: relative;
+display: flex;
+align-items: center;
+}
+
+.inputt {
+padding: 10px 10px 10px 35px; /* espaço pro ícone */
+border-radius: 20px;
+border: none;
+outline: none;
+}
+
+.search-icon {
+position: absolute;
+left: 10px;
+color: gray;
+font-size: 14px;
+}
