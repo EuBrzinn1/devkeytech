@@ -31,7 +31,7 @@ function Header() {
             </div>
 
             <div className='header-bars'>
-                <h3 className='perfil'>Perfil</h3>
+                <h3 className='perfil'>Meu Perfil</h3>
             </div>
         </header>
     );
