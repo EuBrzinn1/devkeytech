@@ -1,7 +1,7 @@
 import './Header.css';
 import { FaSearch } from "react-icons/fa";
 
-function Header() {
+function Header({ activeTab, setActiveTab }) {
     return (
         <header className='header'>
             <div className='Header-app'>
@@ -14,13 +14,31 @@ function Header() {
 
             <div className='barrasdetarefa'>
                 <div className='home'>
-                    <button className='Botao'>Inicio</button>
-                    <button className='Botao'>Produtos</button>
-                    <button className='Botao'>Desejos</button>
+                    
+                    <button 
+                        className={`Botao ${activeTab === "home" ? "ativo" : ""}`}
+                        onClick={() => setActiveTab("home")}
+                    >
+                        Inicio
+                    </button>
+
+                    <button 
+                        className={`Botao ${activeTab === "produtos" ? "ativo" : ""}`}
+                        onClick={() => setActiveTab("produtos")}
+                    >
+                        Produtos
+                    </button>
+
+                    <button 
+                        className={`Botao ${activeTab === "desejos" ? "ativo" : ""}`}
+                        onClick={() => setActiveTab("desejos")}
+                    >
+                        Desejos
+                    </button>
+
                 </div>
             </div>
 
-            {/* 🔥 INPUT COM ÍCONE */}
             <div className='input-container'>
                 <FaSearch className='search-icon' />
                 <input 
@@ -31,7 +49,13 @@ function Header() {
             </div>
 
             <div className='header-bars'>
-                <h3 className='perfil'>Meu Perfil</h3>
+                <h3 
+                    className='perfil'
+                    onClick={() => setActiveTab("perfil")}
+                    style={{ cursor: "pointer" }}
+                >
+                    Meu Perfil
+                </h3>
             </div>
         </header>
     );

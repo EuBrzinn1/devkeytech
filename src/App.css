@@ -10,3 +10,10 @@ body {
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 30px;
+}
