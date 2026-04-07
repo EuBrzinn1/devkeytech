@@ -1,18 +1,13 @@
-import "./Cards.css";
-import { Play } from "lucide-react";
+import './Cards.css';
 
-function Cards({ title, category, banner }) {
+function Cards({ banner, title, category }) {
   return (
-    <div className="vortex-card">
-      <img src={banner} alt={title} className="card-img" />
+    <div className="card">
+      <img src={banner} alt={title} />
 
-      <div className="card-info">
-        <h4>{title}</h4>
+      <div className="card-content">
+        <h3>{title}</h3>
         <p>{category}</p>
-
-        <button className="play-btn">
-          <Play size={14} fill="white" />
-        </button>
       </div>
     </div>
   );
