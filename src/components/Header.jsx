@@ -1,7 +1,9 @@
 import './Header.css';
 import { FaSearch } from "react-icons/fa";
 
-function Header({ activeTab, setActiveTab }) {
+function Header(props) {
+    const { activeTab, setActiveTab, search, setSearch } = props;
+
     return (
         <header className='header'>
             <div className='Header-app'>
@@ -45,6 +47,8 @@ function Header({ activeTab, setActiveTab }) {
                     type="text" 
                     className='inputt'  
                     placeholder='Buscar no DevKey Tech...' 
+                    value={search || ""} 
+                    onChange={(e) => setSearch(e.target.value)}
                 />
             </div>
 
