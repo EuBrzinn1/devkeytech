@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import './Banner.css';
 
-// Importando as imagens da pasta assets
-import foto1 from '../assets/foto1.webp';
-import foto2 from '../assets/foto2.webp';
-import foto3 from '../assets/foto3.webp';
-import foto4 from '../assets/foto4.webp';
-import foto5 from '../assets/foto5.webp';
+// Importando as 6 imagens da pasta assets
+import foto1 from '../assets/netflix.webp.png';
+import foto2 from '../assets/spotify.webp.png';
+import foto3 from '../assets/xbox.webp.png';
+import foto4 from '../assets/psn.webp.png';
+import foto5 from '../assets/steam.webp.png';
+import foto6 from '../assets/play.webp.png'; // <- Adicionado o 6º banner
 
 const Banner = () => {
-  const images = [foto1, foto2, foto3, foto4, foto5];
+  const images = [foto1, foto2, foto3, foto4, foto5, foto6];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Função para ir para a próxima imagem

@@ -3,7 +3,7 @@ import "./App.css";
 import Header from './components/Header';
 import Banner from './components/Banner';
 import Cards from './components/Cards';
-import { ArrayInicial, Produtos } from './data/Array.js';
+import { ArrayInicial, Produtos } from './data/array.js';
 
 function App() {
   const [activeTab, setActiveTab] = useState("home");
@@ -114,7 +114,6 @@ function App() {
         {!produtoSelecionado && activeTab === "produtos" && (
           <div className="grid">
             <h2 className="maisve">Produtos</h2>
-            <h2 className="maisve">Smartphones e Televisões</h2>
 
             {itensProdutos.map((item) => (
               <Cards

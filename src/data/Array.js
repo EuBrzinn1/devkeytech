@@ -4,14 +4,16 @@ import item3 from '../assets/maquina.webp';
 import item4 from '../assets/computador.webp';
 import item5 from '../assets/jbl.webp';
 import item6 from '../assets/air.webp';
+import item17 from '../assets/psn.webp';
+import item18 from '../assets/play.webp';
 
 export const ArrayInicial = [
     { id: 1, name: 'Iphone 17', desc: 'O iPhone 17 é o celular mais avançado da Apple, com alto desempenho, câmeras profissionais, bateria duradoura e tela grande de alta qualidade.', banner: item1 },
     { id: 2, name: 'Smart TV 75” Samsung Crystal UHD 4K', desc: 'A Smart TV 75” Samsung Crystal UHD 4K é uma TV grande com imagem 4K, sistema smart e ótima qualidade para filmes, séries e jogos.', banner: item2},
-    { id: 3, name: 'Lava e Seca Samsung AI Control WD13FG 13kg', desc: 'Máquina super moderna com inteligência artificial, lava muito bem, econômica e cheia de tecnologia (Wi-Fi, vapor antibacteriano). Ideal pra família.', banner: item3},
-    { id: 4, name: 'MacBook Air 13" Apple M4', desc: 'Extremamente rápido, bateria absurda e construção premium. Melhor escolha geral hoje.', banner: item4},
-    { id: 5, name: 'Caixa de Som Bluetooth JBL Boombox 4', desc: 'Som extremamente forte, graves pesados e bateria longa — perfeita pra festa grande.', banner: item5},
-    { id: 6, name: 'Philips Walita Série 3000 7,2L Digital', desc: 'A mais confiável do mercado, assa tudo por igual e dura anos — melhor escolha geral.', banner: item6},
+    { id: 3, name: 'Spotify Gift Card', desc: 'Cartão presente para assinar o Spotify Premium, permitindo ouvir músicas sem anúncios, baixar playlists e escutar offline.', banner: item3},
+    { id: 4, name: 'Steam Gift Card', desc: 'Crédito para usar na Steam, ideal para comprar jogos, conteúdos extras e itens dentro da plataforma.', banner: item4},
+    { id: 5, name: 'Xbox Gift Card', desc: 'Cartão presente da Xbox para adquirir jogos, assinaturas (Game Pass) e conteúdos digitais na loja da Microsoft.', banner: item5},
+    { id: 6, name: 'Netflix Gift Card', desc: 'Crédito para usar na Netflix e assistir filmes, séries e documentários sem precisar de cartão de crédito.', banner: item6},
 ]
 
 import item7 from '../assets/iphone16.webp';
@@ -39,6 +41,12 @@ export const Produtos=[
     { id: 2, name: 'Samsung QLED 43" Full HD Q5F', price:  "R$ " + '1.700' ,cores: ["Azul", "Preto", "Rosa", "Verde", "Branco"], desc: 'A Samsung QLED 43" Full HD Q5F é uma TV com imagem Full HD, sistema smart e ótima qualidade para filmes, séries e jogos.', banner: item14 },
     { id: 2, name: 'Samsung QLED 43" 4K + Soundbar', price:  "R$ " + '3.600' ,cores: ["Azul", "Preto", "Rosa", "Verde", "Branco"], desc: 'A Samsung QLED 43" 4K + Soundbar é uma TV com imagem 4K, sistema smart e ótima qualidade para filmes, séries e jogos.', banner: item15 },
     { id: 2, name: 'Samsung OLED 4K Vision AI 2025', price:  "R$ " + '4.500' ,cores: ["Azul", "Preto", "Rosa", "Verde", "Branco"], desc: 'A Samsung OLED 4K Vision AI 2025 é uma TV com imagem 4K, sistema smart e ótima qualidade para filmes, séries e jogos.', banner: item16 },
+    { id: 3, name: 'Spotify Gift Card', cores: ["R$15", "R$30", "R$50", "R$100", "R$200"], desc: 'Cartão presente para assinar o Spotify Premium, permitindo ouvir músicas sem anúncios, baixar playlists e escutar offline.', banner: item3 },
+    { id: 3, name: 'Steam Gift Card', cores: ["R$15", "R$30", "R$50", "R$100", "R$200"], desc: 'Crédito para usar na Steam, ideal para comprar jogos, conteúdos extras e itens dentro da plataforma.', banner: item4 },
+    { id: 3, name: 'Xbox Gift Card', cores: ["R$15", "R$30", "R$50", "R$100", "R$200"], desc: 'Cartão presente da Xbox para adquirir jogos, assinaturas (Game Pass) e conteúdos digitais na loja da Microsoft.', banner: item5 },
+    { id: 3, name: 'Netflix Gift Card', cores: ["R$15", "R$30", "R$50", "R$100", "R$200"], desc: 'Crédito para usar na Netflix e assistir filmes, séries e documentários sem precisar de cartão de crédito.', banner: item6 },
+    { id: 3, name: 'PSN Gift Card', cores: ["R$15", "R$30", "R$50", "R$100", "R$200"], desc: 'Cartão presente para assinar a PSN Plus, acesso a jogos e conteúdos digitais na loja.', banner: item17 },
+    { id: 3, name: 'Google Play Gift Card', cores: ["R$15", "R$30", "R$50", "R$100", "R$200"], desc: 'Cartão presente para adicionar crédito a sua conta Google para comprar jogos ou conteúdos digitais no aplicativo móvel.', banner: item18 },
 ]
 
 
