@@ -7,11 +7,11 @@ function Header(props) {
     return (
         <header className='header'>
             <div className='Header-app'>
-                <h2>DevKey Tech</h2>
+                <h2>Magazine Luiza</h2>
             </div>
 
             <div className='Bemvindo'>
-                <h3>Bem vindo, <span>Bolsonaro!</span></h3>
+                <h3>Bem vindo, <span>Rafael Valeiro!</span></h3>
             </div>
 
             <div className='barrasdetarefa'>

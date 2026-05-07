@@ -1,14 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Header from './components/Header';
 import Banner from './components/Banner';
 import Cards from './components/Cards';
 import { ArrayInicial, Produtos } from './data/array.js';
+import AOS from 'aos'; //importei o AOS
+import "aos/dist/aos.css" //importei o css da biblioteca AOS
+
 
 function App() {
   const [activeTab, setActiveTab] = useState("home");
   const [search, setSearch] = useState("");
   const [produtoSelecionado, setProdutoSelecionado] = useState(null);
+
+    useEffect(() =>{
+
+    AOS.init({
+      duration: 1000,
+      once: false,
+      easing: "ease-in-out",
+    })
+
+  },[]);
 
   // filtro HOME
   const itensFiltrados = ArrayInicial.filter((item) =>
