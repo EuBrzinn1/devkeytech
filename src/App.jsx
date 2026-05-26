@@ -3,25 +3,26 @@ import "./App.css";
 import Header from './components/Header';
 import Banner from './components/Banner';
 import Cards from './components/Cards';
+import Footer from './components/Footer'; // Importação do Footer adicionada aqui!
 import { ArrayInicial, Produtos } from './data/array.js';
-import AOS from 'aos'; //importei o AOS
-import "aos/dist/aos.css" //importei o css da biblioteca AOS
+import AOS from 'aos'; 
+import "aos/dist/aos.css"; 
+
 
 
 function App() {
   const [activeTab, setActiveTab] = useState("home");
   const [search, setSearch] = useState("");
   const [produtoSelecionado, setProdutoSelecionado] = useState(null);
+  const [corSelecionada, setCorSelecionada] = useState("");
 
-    useEffect(() =>{
-
+  useEffect(() => {
     AOS.init({
       duration: 1000,
       once: false,
       easing: "ease-in-out",
-    })
-
-  },[]);
+    });
+  }, []);
 
   // filtro HOME
   const itensFiltrados = ArrayInicial.filter((item) =>
@@ -32,13 +33,12 @@ function App() {
   const itensProdutos = Produtos.filter((item) =>
     item.name.toLowerCase().includes(search.toLowerCase())
   );
+  
   // ABRIR MODAL
   const abrirProduto = (item) => {
-    setProdutoSelecionado(item)
-    setCorSelecionada("")
+    setProdutoSelecionado(item);
+    setCorSelecionada("");
   };
-
-  const [corSelecionada, setCorSelecionada] = useState("")
 
   return (
     <div>
@@ -65,10 +65,10 @@ function App() {
               <h2>{produtoSelecionado.name}</h2>
               <p>{produtoSelecionado.desc}</p>
 
-
               {produtoSelecionado.price && (
                 <p> {produtoSelecionado.price}</p>
               )}
+              
               {/* VERIFICAÇÃO DE COR */}
               {produtoSelecionado.cores && (
                 <>
@@ -140,7 +140,6 @@ function App() {
           </div>
         )}
         
-
         {/* DESEJOS */}
         {!produtoSelecionado && activeTab === "desejos" && (
           <h1>Lista de desejos</h1>
@@ -152,6 +151,12 @@ function App() {
         )}
 
       </main>
+
+      {/* Footer reposicionado corretamente dentro do return */}
+      <footer>
+        <Footer />
+      </footer>
+
     </div>
   );
 }

@@ -1,86 +1,33 @@
-/* Container principal - esconde o que passa dos limites */
+
 .banner-container {
   position: relative;
   top: 50px;
   width: 100%;
-  max-width: 1200px; /* Ajuste para o tamanho do seu layout */
-  margin: 0 auto;
-  overflow: hidden;
-  border-radius: 4px; /* Leve arredondamento, opcional */
-}
-
-/* O "trilho" que segura todas as imagens lado a lado */
-.banner-track {
-  display: flex;
-  transition: transform 0.5s ease-in-out; /* Animação suave ao trocar de slide */
-  width: 100%;
-}
-
-/* Cada imagem ocupa 100% do espaço visível do container */
-.banner-slide {
-  min-width: 100%;
+  max-width: 1200px; 
+  margin: 0 auto !important; 
+  padding: 0 20px;           
   box-sizing: border-box;
+}
+
+.banner-container .swiper {
+  width: 100%;
+  margin: 0 auto !important;
+  border-radius: 15px;       
+  overflow: hidden;
+}
+
+
+.banner-slide {
+  width: 100% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .banner-slide img {
   width: 100%;
-  height: auto; /* Deixa a altura se ajustar sozinha */
-  max-height: 400px; /* Impede que fique gigante em telas grandes */
-  object-fit: contain; /* <-- O SEGREDO AQUI: 'contain' faz a imagem inteira aparecer sem cortar NADA */
+  height: auto; 
+  max-height: 400px; 
+  object-fit: cover; 
   display: block;
-  margin: 0 auto; /* Centraliza caso a imagem seja menor que a tela */
-}
-
-/* --- Botões das Setas --- */
-.nav-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(255, 255, 255, 0.8); /* Fundo branco levemente transparente */
-  color: #333;
-  border: none;
-  cursor: pointer;
-  padding: 15px 12px;
-  font-size: 18px;
-  z-index: 10;
-  transition: background-color 0.2s;
-}
-
-.nav-button:hover {
-  background-color: rgba(255, 255, 255, 1);
-}
-
-.left-arrow {
-  left: 0;
-}
-
-.right-arrow {
-  right: 0;
-}
-
-/* --- Bolinhas (Dots) --- */
-.dots-container {
-  position: absolute;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-  z-index: 10;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  background-color: rgba(255, 255, 255, 0.4); /* Bolinha desativada */
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  padding: 0;
-  transition: background-color 0.3s, transform 0.3s;
-}
-
-.dot.active {
-  background-color: #ffffff; /* Bolinha ativa totalmente branca */
-  transform: scale(1.2); /* Dá um leve destaque na bolinha ativa */
 }

@@ -1,0 +1,87 @@
+.footer-container {
+  background-color: #121217; /* Cor de fundo escura idêntica ao print */
+  color: #ffffff;
+  padding: 40px 8% 20px 8%;
+  font-family: sans-serif;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between; /* Joga um para cada lado */
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.footer-column {
+  max-width: 40%;
+}
+
+.footer-text {
+  color: #8a8a93; /* Tom cinza para o endereço */
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.footer-column h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.phone-number {
+  color: #0086FF; /* Azul destacado para o telefone */
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.footer-divider {
+  border: 0;
+  border-top: 1px solid #23232a; /* Linha sutil de divisão */
+  margin-bottom: 20px;
+}
+
+.footer-bottom h3 {
+  font-size: 13px;
+  color: #66666e; /* Tom mais escuro para o copyright */
+  font-weight: normal;
+}
+
+/* Responsivo: se a tela for pequena (celular), fica um embaixo do outro */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .footer-column {
+    max-width: 100%;
+  }
+}
+
+.spanzin {
+    color: red;
+}
+
+.imagem {
+    width: 280px;
+}
+
+.instagram-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.instagram-link svg {
+  font-size: 31px;
+}
+
+.instagram-link:hover {
+  color: #0086FF;
+  transform: scale(1.05);
+}
