@@ -1,5 +1,4 @@
 
-
 .card {
   width: 220px;
   background: white;
@@ -8,6 +7,7 @@
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   transition: transform 0.2s ease-in-out;
   cursor: pointer;
+  border: 2px solid black;
 }
 
 .card:hover {
@@ -29,9 +29,14 @@
 .card-content h3 {
   margin: 5px 0;
   font-size: 16px;
+  color: black;
 }
 
 .card-content p {
   font-size: 13px;
   color: #555;
+}
+
+.corzinha {
+  color: black;
 }

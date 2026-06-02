@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 body {
-  background: linear-gradient(to bottom, #0086FF, #ffffff);
+  /* background: linear-gradient(to bottom, #0086FF, #ffffff); */
+  background: linear-gradient(to bottom, #f5f7ff, #eef4ff);
   min-height: 100vh;
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  color: white;
 }
 
 
@@ -24,11 +24,12 @@ body {
 
 .grid h2 {
   width: 100%;
-  color: white;
+  color: rgb(25, 24, 24);
+  background: #f5f7ff;
 }
 
 .maisve {
-  text-shadow: 2px 2px 5px black;
+  text-shadow: 2px 2px 5px rgb(255, 255, 255);
 }
 
 .overlay {
@@ -116,4 +117,33 @@ body {
   text-shadow: 2px 2px 7px black;
   position: absolute;
   top: 618px;
+}
+
+.lista2 {
+  color: black;
+}
+
+/* BOTÃO DE DESEJOS */
+
+.desejo {
+  background: #ff4081;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-right: 10px;
+  transition: 0.3s;
+}
+
+.desejo:hover {
+  transform: scale(1.05);
+}
+
+/* MENSAGEM SEM PRODUTOS */
+
+.lista2 {
+  text-align: center;
+  margin-top: 30px;
 }

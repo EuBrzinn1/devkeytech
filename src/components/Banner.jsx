@@ -7,15 +7,15 @@ import 'swiper/css/pagination';
 import './Banner.css';
 
 
-import foto1 from '../assets/netflix.webp.png';
-import foto2 from '../assets/spotify.webp.png';
-import foto3 from '../assets/xbox.webp.png';
-import foto4 from '../assets/psn.webp.png';
-import foto5 from '../assets/steam.webp.png';
-import foto6 from '../assets/play.webp.png';
+import iphone from "../assets/1iphone.png";
+import netflix from '../assets/1netflix.png';
+import play from '../assets/1play.png';
+import psn from '../assets/1psn.png';
+import tv from '../assets/1tv.png';
+import xbox from '../assets/1xbox.png';
 
 const Banner = () => {
-  const images = [foto1, foto2, foto3, foto4, foto5, foto6];
+  const images = [iphone, netflix, play, psn, tv, xbox];
 
   return (
     <div className="banner-container">

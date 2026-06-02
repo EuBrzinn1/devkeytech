@@ -1,5 +1,7 @@
 import './Header.css';
 import { FaSearch } from "react-icons/fa";
+import devkeycerto from "../assets/devkeycerto.png";
+import devkeytech from "../assets/devkeytech.png"
 
 function Header(props) {
     const { activeTab, setActiveTab, search, setSearch } = props;
@@ -7,11 +9,11 @@ function Header(props) {
     return (
         <header className='header'>
             <div className='Header-app'>
-                <h2>Magazine Luiza</h2>
+               <img src={devkeytech} alt="Logodevkey" className="imagem" />
             </div>
 
             <div className='Bemvindo'>
-                <h3>Bem vindo, <span>Rafael Valeiro!</span></h3>
+                <h2>Bem vindo, <span className='nomeUsuario'>Rafael Valeiro! 👋🏻</span></h2>
             </div>
 
             <div className='barrasdetarefa'>
@@ -58,7 +60,7 @@ function Header(props) {
                     onClick={() => setActiveTab("perfil")}
                     style={{ cursor: "pointer" }}
                 >
-                    Meu Perfil
+                    Meu Perfil 
                 </h3>
             </div>
         </header>

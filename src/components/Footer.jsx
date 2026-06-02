@@ -26,13 +26,13 @@ function Footer() {
           </p>
 
           <a
-            href="https://www.instagram.com/magazineluiza"
+            href="https://www.instagram.com/brzinxtsc._"
             target="_blank"
             rel="noopener noreferrer"
             className="instagram-link"
           >
             <FaInstagram />
-            <span>@magazineluiza</span>
+            <span>@devkeytech</span>
           </a>
         </div>
 
