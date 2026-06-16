@@ -4,7 +4,8 @@ import devkeycerto from "../assets/devkeycerto.png";
 import devkeytech from "../assets/devkeytech.png"
 
 function Header(props) {
-    const { activeTab, setActiveTab, search, setSearch } = props;
+    // CORREÇÃO: Adicionado 'user' na desestruturação das props vindas do App.jsx
+    const { activeTab, setActiveTab, search, setSearch, user } = props;
 
     return (
         <header className='header'>
@@ -13,7 +14,8 @@ function Header(props) {
             </div>
 
             <div className='Bemvindo'>
-                <h2>Bem vindo, <span className='nomeUsuario'>Rafael Valeiro! 👋🏻</span></h2>
+                {/* CORREÇÃO: Removido o nome estático e colocado o estado dinâmico {user?.name} */}
+                <h2>Bem vindo, <span className='nomeUsuario'>{user ? user.name : "Visitante"}! 👋🏻</span></h2>
             </div>
 
             <div className='barrasdetarefa'>

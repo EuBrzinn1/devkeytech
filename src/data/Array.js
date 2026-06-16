@@ -3,9 +3,9 @@ import item2 from '../assets/tv.webp';
 import item3 from '../assets/maquina.webp';
 import item4 from '../assets/computador.webp';
 import item5 from '../assets/jbl.webp';
-import item6 from '../assets/air.webp';
+import item6 from '../assets/air.webp.png';
 import item17 from '../assets/psn.webp';
-import item18 from '../assets/play.webp';
+import item18 from '../assets/play.webp.png';
 
 export const ArrayInicial = [
     { id: 1, name: 'Iphone 17', desc: 'O iPhone 17 é o celular mais avançado da Apple, com alto desempenho, câmeras profissionais, bateria duradoura e tela grande de alta qualidade.', banner: item1 },
@@ -21,11 +21,11 @@ import item8 from '../assets/iphone15.webp';
 import item9 from '../assets/iphone14.webp';
 import item10 from '../assets/iphone13.webp';
 import item11 from '../assets/iphone12.webp';
-import item12 from '../assets/tv2.webp';
-import item13 from '../assets/tv3.webp';
-import item14 from '../assets/tv4.webp';
-import item15 from '../assets/tv5.webp';
-import item16 from '../assets/tv6.webp';
+import item12 from '../assets/tv2.webp.png';
+import item13 from '../assets/tv3.webp.png';
+import item14 from '../assets/tv4.webp.png';
+import item15 from '../assets/tv5.webp.png';
+import item16 from '../assets/tv6.webp.png';
 
 
 export const Produtos=[

@@ -3,10 +3,11 @@ import "./App.css";
 import Header from './components/Header';
 import Banner from './components/Banner';
 import Cards from './components/Cards';
-import Footer from './components/Footer'; 
+import Footer from './components/Footer';
+import Profile from './components/Profile'; // Seu componente importado aqui
 import { ArrayInicial, Produtos } from './data/array.js';
-import AOS from 'aos'; 
-import "aos/dist/aos.css"; 
+import AOS from 'aos';
+import "aos/dist/aos.css";
 
 // 1. Importações do React Toastify
 import { ToastContainer, toast } from 'react-toastify';
@@ -19,6 +20,11 @@ function App() {
   const [corSelecionada, setCorSelecionada] = useState("");
   const [desejos, setDesejos] = useState([]);
 
+  const [user, setUser] = useState({
+    name: "Rafael",
+    fidelidade: "Bronze",
+  });
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -28,14 +34,16 @@ function App() {
   }, []);
 
   // filtro HOME
-  const itensFiltrados = ArrayInicial.filter((item) =>
-    item.name.toLowerCase().includes(search.toLowerCase())
-  );
+  const itensFiltrados = ArrayInicial.filter((item) => {
+    const nome = item.name || item.title || item.Title || "";
+    return nome.toLowerCase().includes(search.toLowerCase());
+  });
 
   // filtro PRODUTOS
-  const itensProdutos = Produtos.filter((item) =>
-    item.name.toLowerCase().includes(search.toLowerCase())
-  );
+  const itensProdutos = Produtos.filter((item) => {
+    const nome = item.name || item.title || item.Title || "";
+    return nome.toLowerCase().includes(search.toLowerCase());
+  });
   
   // ABRIR MODAL
   const abrirProduto = (item) => {
@@ -43,8 +51,19 @@ function App() {
     setCorSelecionada("");
   };
 
+  // Converte a string "R$ 5.999" para o número 5999 puro para podermos multiplicar
+  const converterPrecoParaNumero = (precoString) => {
+    if (!precoString) return 0;
+    const apenasNumeros = precoString.replace(/\D/g, "");
+    return parseFloat(apenasNumeros) || 0;
+  };
+
+  // Formata o número calculado de volta para a string bonita no formato "R$ X.XXX"
+  const formatarPrecoBr = (valor) => {
+    return "R$ " + valor.toLocaleString("pt-BR");
+  };
+
   const adicionarDesejo = (produto) => {
-    // Substituído por toast.warning
     if (!corSelecionada) {
       toast.warn("Selecione uma cor primeiro!", {
         position: "top-center",
@@ -53,27 +72,35 @@ function App() {
       return;
     }
 
-    const produtoComCor = {
-      ...produto,
-      corEscolhida: corSelecionada,
-    };
+    const nomeAtual = produto.name || produto.title || produto.Title || "Produto";
 
-    const existe = desejos.find(
+    // Busca se já existe um item com o mesmo nome E com a mesma cor no carrinho
+    const indexExiste = desejos.findIndex(
       (item) =>
-        item.name === produto.name &&
+        (item.name === produto.name || item.title === produto.title || item.Title === produto.Title) &&
         item.corEscolhida === corSelecionada
     );
 
-    if (!existe) {
-      setDesejos([...desejos, produtoComCor]);
-      // Substituído por toast.success
-      toast.success(`${produto.name} (${corSelecionada}) adicionado aos desejos!`, {
+    if (indexExiste !== -1) {
+      // Se já existe, cria uma cópia do array e aumenta a quantidade dele em +1
+      const copiaDesejos = [...desejos];
+      copiaDesejos[indexExiste].quantidade += 1;
+      setDesejos(copiaDesejos);
+
+      toast.success(`Mais um ${nomeAtual} (${corSelecionada}) adicionado! Total: ${copiaDesejos[indexExiste].quantidade}`, {
         position: "top-right",
         autoClose: 3000,
       });
     } else {
-      // Substituído por toast.info
-      toast.info("Este produto com esta cor já está na sua lista!", {
+      // Se for o primeiro, insere o item configurando o contador de quantidade em 1
+      const produtoComCor = {
+        ...produto,
+        corEscolhida: corSelecionada,
+        quantidade: 1
+      };
+      setDesejos([...desejos, produtoComCor]);
+
+      toast.success(`${nomeAtual} (${corSelecionada}) adicionado ao seu carrinho!`, {
         position: "top-right",
         autoClose: 3000,
       });
@@ -81,8 +108,9 @@ function App() {
   };
 
   const removerDesejo = (produto) => {
+    const nomeAtual = produto.name || produto.title || produto.Title;
     setDesejos(
-      desejos.filter((item) => !(item.name === produto.name && item.corEscolhida === produto.corEscolhida))
+      desejos.filter((item) => !((item.name === nomeAtual || item.title === nomeAtual || item.Title === nomeAtual) && item.corEscolhida === produto.corEscolhida))
     );
     toast.error("Produto removido dos desejos.", {
       position: "top-right",
@@ -92,7 +120,6 @@ function App() {
 
   return (
     <div>
-      {/*config dos negocio do toast ai*/}
       <ToastContainer theme="dark"
         position="top-right"
         autoClose={3000}
@@ -103,11 +130,12 @@ function App() {
 
       <div className="cabecalho-app">
         <Header
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
-          search={search}
-          setSearch={setSearch}
-        />
+  activeTab={activeTab}
+  setActiveTab={setActiveTab}
+  search={search}
+  setSearch={setSearch}
+  user={user}
+/>
       </div>
 
       <main className='Meio-app'>
@@ -118,10 +146,10 @@ function App() {
             <div className="modal">
               <img
                 src={produtoSelecionado.banner}
-                alt={produtoSelecionado.name}
+                alt={produtoSelecionado.name || produtoSelecionado.title || produtoSelecionado.Title}
               />
 
-              <h2>{produtoSelecionado.name}</h2>
+              <h2>{produtoSelecionado.name || produtoSelecionado.title || produtoSelecionado.Title}</h2>
               <p>{produtoSelecionado.desc}</p>
 
               {produtoSelecionado.price && (
@@ -157,7 +185,7 @@ function App() {
                 className="desejo"
                 onClick={() => adicionarDesejo(produtoSelecionado)}
               >
-                Clique aqui para adicionar aos desejos!
+                Clique aqui para adicionar ao carrinho!
               </button>
 
               <button
@@ -181,11 +209,12 @@ function App() {
 
               {itensFiltrados.map((item, index) => (
                 <Cards
-                  key={item.id}
+                  key={item.id || index}
                   index={index}
                   banner={item.banner}
-                  title={item.name}
+                  title={item.name || item.title || item.Title}
                   category={item.desc}
+                  price={item.price}
                   onClick={() => abrirProduto(item)}
                 />
               ))}
@@ -200,47 +229,58 @@ function App() {
 
             {itensProdutos.map((item, index) => (
               <Cards
-                key={item.id}
+                key={item.id || index}
                 index={index}
                 banner={item.banner}
-                title={item.name}
+                title={item.name || item.title || item.Title}
                 category={item.desc}
+                price={item.price}
                 onClick={() => abrirProduto(item)}
               />
             ))}
           </div>
         )}
-        
-        {/* DESEJOS */}
+
+        {/* CARRINHO / COMPRAS */}
         {!produtoSelecionado && activeTab === "desejos" && (
           <>
-            <h1 className="lista2">Sua lista de desejos!</h1>
+            <h1 className="lista2">Seu carrinho!</h1>
 
             <div className="grid">
               {desejos.length === 0 ? (
                 <h2>Nenhum produto adicionado.</h2>
               ) : (
-                desejos.map((item, index) => (
-                  <Cards
-                    key={`${item.id}-${item.corEscolhida}`}
-                    index={index}
-                    banner={item.banner}
-                    title={item.name}
-                    category={item.desc}
-                    price={item.price}
-                    corEscolhida={item.corEscolhida}
-                    onClick={() => abrirProduto(item)}
-                  />
-                ))
+                desejos.map((item, index) => {
+                  const valorUnitario = converterPrecoParaNumero(item.price);
+                  const valorTotalCalculado = valorUnitario * item.quantidade;
+                  const precoFinalMultiplicado = valorUnitario > 0 ? formatarPrecoBr(valorTotalCalculado) : item.price;
+
+                  return (
+                    <Cards
+                      key={`${item.id || index}-${item.corEscolhida}`}
+                      index={index}
+                      banner={item.banner}
+                      title={item.name || item.title || item.Title}
+                      category={item.desc}
+                      price={precoFinalMultiplicado}
+                      corEscolhida={item.corEscolhida}
+                      quantidade={item.quantidade}
+                      onClick={() => abrirProduto(item)}
+                    />
+                  );
+                })
               )}
             </div>
           </>
         )}
 
         {/* PERFIL */}
-        {!produtoSelecionado && activeTab === "perfil" && (
-          <h1 className="lista2">Perfil</h1>
-        )}
+{!produtoSelecionado && activeTab === "perfil" && (
+  <Profile
+    user={user}
+    setUser={setUser}
+  />
+)}
 
       </main>
 

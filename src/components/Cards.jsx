@@ -1,6 +1,6 @@
 import './Cards.css';
 
-function Cards({ banner, title, category, onClick, price, index, corEscolhida }) {
+function Cards({ banner, title, category, onClick, price, index, corEscolhida, quantidade }) {
   return (
     <div 
       className="card" 
@@ -15,10 +15,11 @@ function Cards({ banner, title, category, onClick, price, index, corEscolhida })
         <p>{category}</p>
         <h3>{price}</h3>
         
-        {/* Se o card receber uma cor escolhida, exibe ela aqui */}
+        {/* Exibe a cor escolhida e adiciona o contador (X) ao lado se houver quantidade acumulada */}
         {corEscolhida && (
           <p className="cor-selecionada">
-            <strong className='corzinha'>Especificação: </strong> {corEscolhida}
+            <strong className='corzinha'>Especificação: </strong> 
+            {quantidade && quantidade > 1 ? `(${quantidade}) ${corEscolhida}` : corEscolhida}
           </p>
         )}
       </div>
