@@ -5,7 +5,7 @@ import Banner from './components/Banner';
 import Cards from './components/Cards';
 import Footer from './components/Footer';
 import Profile from './components/Profile'; // Seu componente importado aqui
-import { ArrayInicial, Produtos } from './data/array.js';
+import { ArrayInicial, Produtos } from './data/Array.js';
 import AOS from 'aos';
 import "aos/dist/aos.css";
 
