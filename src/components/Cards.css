@@ -40,3 +40,21 @@
 .corzinha {
   color: black;
 }
+
+.btn-remover-card {
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #dc3545; /* Vermelho padrão de exclusão */
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-remover-card:hover {
+  background-color: #bd2130; /* Tom mais escuro ao passar o mouse */
+}

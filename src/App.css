@@ -147,3 +147,134 @@ body {
   text-align: center;
   margin-top: 30px;
 }
+
+/* ==========================================================================
+   SEÇÃO DO CARRINHO (ABA DESEJOS) - DEVKEY TECH
+   ========================================================================== */
+
+/* Container principal que segura os produtos e a caixa lateral */
+.carrinho-container {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  padding: 0 20px;
+  margin-bottom: 50px;
+  width: 100%;
+}
+
+/* Lado Esquerdo: Cards alinhados lado a lado (linha) e que quebram para baixo */
+.carrinho-produtos-grid {
+  flex: 1;
+  display: flex;
+  flex-direction: row;    /* Garante que os iPhones fiquem em linha reta */
+  flex-wrap: wrap;        /* Faz os produtos pularem para baixo se não couberem mais na linha */
+  gap: 20px;              /* Espaço entre um card e outro */
+}
+
+/* Caixa lateral direita: Resumo do Pedido */
+.resumo-carrinho {
+  width: 320px;
+  padding: 25px;
+  background-color: #1a1a1a;       /* Fundo dark elegante */
+  border: 2px solid #007bff;        /* Borda azul destacada da DevKey */
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 123, 255, 0.15); /* Sombra neon azul suave */
+  color: #ffffff;
+  font-family: sans-serif;
+  position: -webkit-sticky;        /* Faz a caixinha acompanhar a rolagem da página se necessário */
+  position: sticky;
+  top: 20px;
+}
+
+/* Título interno do Resumo */
+.resumo-titulo {
+  margin-top: 0;
+  border-bottom: 1px solid #333;
+  padding-bottom: 15px;
+  font-size: 20px;
+  color: #007bff;
+}
+
+/* Seção de listagem e detalhes rápidos */
+.resumo-detalhes {
+  margin: 20px 0;
+  font-size: 15px;
+  color: #ccc;
+}
+
+.resumo-linha {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.resumo-qtd-destaque {
+  color: #fff;
+}
+
+/* Divisor do preço final */
+.resumo-total-secao {
+  border-top: 1px solid #333;
+  padding-top: 15px;
+}
+
+.resumo-total-label {
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* Valor total com destaque em verde sucesso */
+.resumo-total-valor {
+  font-size: 28px;
+  margin: 5px 0 0 0;
+  color: #28a745;
+  font-weight: bold;
+}
+
+/* Botão Oficial do WhatsApp */
+.btn-whatsapp {
+  width: 100%;
+  margin-top: 25px;
+  padding: 14px;
+  background-color: #25D366;       /* Verde WhatsApp */
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Efeito Hover do botão (Passar o rato) */
+.btn-whatsapp:hover {
+  background-color: #1ebe56;       /* Escurece levemente o verde */
+  transform: translateY(-2px);     /* Dá um pequeno salto para cima */
+}
+
+/* Efeito ao clicar */
+.btn-whatsapp:active {
+  transform: translateY(0);
+}
+
+.icon-whats {
+  font-size: 18px;
+}
+
+/* Responsividade: Caso o ecrã seja de telemóvel/pequeno, o resumo desce de forma harmoniosa */
+@media (max-width: 768px) {
+  .carrinho-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .resumo-carrinho {
+    width: 100%;
+    position: static;
+  }
+}

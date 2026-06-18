@@ -1,6 +1,6 @@
 import './Cards.css';
 
-function Cards({ banner, title, category, onClick, price, index, corEscolhida, quantidade }) {
+function Cards({ banner, title, category, onClick, price, index, corEscolhida, quantidade, onRemover }) {
   return (
     <div 
       className="card" 
@@ -21,6 +21,19 @@ function Cards({ banner, title, category, onClick, price, index, corEscolhida, q
             <strong className='corzinha'>Especificação: </strong> 
             {quantidade && quantidade > 1 ? `(${quantidade}) ${corEscolhida}` : corEscolhida}
           </p>
+        )}
+
+        {/* BOTÃO REMOVER: Só aparece se a propriedade onRemover for enviada (ou seja, apenas na aba do carrinho) */}
+        {onRemover && (
+          <button 
+            className="btn-remover-card"
+            onClick={(e) => {
+              e.stopPropagation(); // Impede que o clique abra o modal do produto
+              onRemover();
+            }}
+          >
+            Remover do Carrinho
+          </button>
         )}
       </div>
     </div>

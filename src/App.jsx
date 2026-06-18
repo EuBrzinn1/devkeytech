@@ -241,38 +241,97 @@ function App() {
           </div>
         )}
 
-        {/* CARRINHO / COMPRAS */}
-        {!produtoSelecionado && activeTab === "desejos" && (
-          <>
-            <h1 className="lista2">Seu carrinho!</h1>
+     {/* CARRINHO / COMPRAS */}
+{!produtoSelecionado && activeTab === "desejos" && (
+  <>
+    <h1 className="lista2">Seu carrinho!</h1>
 
-            <div className="grid">
-              {desejos.length === 0 ? (
-                <h2>Nenhum produto adicionado.</h2>
-              ) : (
-                desejos.map((item, index) => {
-                  const valorUnitario = converterPrecoParaNumero(item.price);
-                  const valorTotalCalculado = valorUnitario * item.quantidade;
-                  const precoFinalMultiplicado = valorUnitario > 0 ? formatarPrecoBr(valorTotalCalculado) : item.price;
+    {/* Container principal */}
+    <div className="carrinho-container">
+      
+      {/* Lado Esquerdo: Lista de Produtos */}
+      <div className="carrinho-produtos-grid">
+        {desejos.length === 0 ? (
+          <h2>Nenhum produto adicionado.</h2>
+        ) : (
+          desejos.map((item, index) => {
+            const valorUnitario = converterPrecoParaNumero(item.price);
+            const valorTotalCalculado = valorUnitario * item.quantidade;
+            const precoFinalMultiplicado = valorUnitario > 0 ? formatarPrecoBr(valorTotalCalculado) : item.price;
 
-                  return (
-                    <Cards
-                      key={`${item.id || index}-${item.corEscolhida}`}
-                      index={index}
-                      banner={item.banner}
-                      title={item.name || item.title || item.Title}
-                      category={item.desc}
-                      price={precoFinalMultiplicado}
-                      corEscolhida={item.corEscolhida}
-                      quantidade={item.quantidade}
-                      onClick={() => abrirProduto(item)}
-                    />
-                  );
-                })
-              )}
-            </div>
-          </>
+            return (
+              <Cards
+                key={`${item.id || index}-${item.corEscolhida}`}
+                index={index}
+                banner={item.banner}
+                title={item.name || item.title || item.Title}
+                category={item.desc}
+                price={precoFinalMultiplicado}
+                corEscolhida={item.corEscolhida}
+                quantidade={item.quantidade}
+                onClick={() => abrirProduto(item)}
+                onRemover={() => removerDesejo(item)} // <-- PASSANDO A FUNÇÃO DE REMOVER AQUI
+              />
+            );
+          })
         )}
+      </div>
+
+      {/* Lado Direito: Caixa de Preço Total Estilizada */}
+      {desejos.length > 0 && (
+        <div className="resumo-carrinho">
+          <h3 className="resumo-titulo">Resumo do Pedido</h3>
+          
+          <div className="resumo-detalhes">
+            <p className="resumo-linha">
+              <span>Total de itens:</span> 
+              <strong className="resumo-qtd-destaque">
+                {desejos.reduce((acc, item) => acc + item.quantidade, 0)}x
+              </strong>
+            </p>
+          </div>
+
+          <div className="resumo-total-secao">
+            <span className="resumo-total-label">Valor Total</span>
+            <h2 className="resumo-total-valor">
+              {formatarPrecoBr(
+                desejos.reduce((acumulador, item) => {
+                  return acumulador + (converterPrecoParaNumero(item.price) * item.quantidade);
+                }, 0)
+              )}
+            </h2>
+          </div>
+
+          {/* Botão do WhatsApp */}
+          <button 
+            className="btn-whatsapp"
+            onClick={() => {
+              const numeroWhats = "5515997952060"; // Número do teu rodapé
+              
+              const itensTexto = desejos.map(item => {
+                const nome = item.name || item.title || item.Title;
+                return `- ${item.quantidade}x ${nome} (${item.corEscolhida})`;
+              }).join('\n');
+
+              const totalWhats = formatarPrecoBr(
+                desejos.reduce((acc, item) => acc + (converterPrecoParaNumero(item.price) * item.quantidade), 0)
+              );
+
+              const mensagem = encodeURIComponent(
+                `Olá DevKey Tech! Gostaria de finalizar meu pedido:\n\n${itensTexto}\n\n*Total: ${totalWhats}*`
+              );
+              
+              window.open(`https://wa.me/${numeroWhats}?text=${mensagem}`, '_blank');
+            }}
+          >
+            <span className="icon-whats">💬</span> Enviar para o WhatsApp
+          </button>
+        </div>
+      )}
+
+    </div>
+  </>
+)}
 
         {/* PERFIL */}
 {!produtoSelecionado && activeTab === "perfil" && (

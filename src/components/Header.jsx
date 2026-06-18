@@ -39,7 +39,7 @@ function Header(props) {
                         className={`Botao ${activeTab === "desejos" ? "ativo" : ""}`}
                         onClick={() => setActiveTab("desejos")}
                     >
-                        Desejos
+                        Carrinho
                     </button>
 
                 </div>
